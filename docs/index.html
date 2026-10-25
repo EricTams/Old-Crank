@@ -49,10 +49,13 @@ body{overscroll-behavior:none}
 #levelGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.level-card{position:relative;min-height:148px;padding:16px 12px;text-align:left;background:#f8f3e5;border:2px solid #c4bca5;border-radius:12px;box-shadow:0 3px 0 #c4bca5;display:flex;flex-direction:column;gap:10px}.level-card:disabled{cursor:default;opacity:.55;box-shadow:none}.level-number{font:700 30px Georgia,serif;color:#78834f}.level-name{font-size:14px;flex:1}.level-stars{color:#c6bfae;font-size:24px;letter-spacing:3px;white-space:nowrap}.level-stars .earned{color:#b98724}.level-stars .half{background:linear-gradient(90deg,#b98724 50%,#c6bfae 50%);background-clip:text;-webkit-background-clip:text;color:transparent}.level-lock{position:absolute;right:12px;top:16px;font-size:16px}
 @media(max-width:650px){#levelGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.menu-heading h2{font-size:34px}}
 @media(orientation:landscape) and (max-height:500px){#levelMenu{padding-top:12px;padding-bottom:12px}.menu-heading{margin-bottom:12px}.menu-heading h2{font-size:30px}.menu-heading p{display:none}#levelGrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.level-card{min-height:119px;padding:10px;gap:4px}.level-number{font-size:24px}.level-stars{font-size:22px}.level-name{font-size:12px}}
+
+#rotatePrompt{position:fixed;inset:0;z-index:100;background:#eee9dc;display:grid;place-content:center;text-align:center;padding:30px;gap:14px}#rotatePrompt h2{font:700 28px Georgia,serif;text-transform:none;letter-spacing:0;margin:0}#rotatePrompt p{margin:0;color:#716d61}.rotate-phone{width:80px;height:44px;border:4px solid #78834f;border-radius:9px;margin:0 auto 12px;transform:rotate(-15deg)}
+@media(orientation:landscape) and (max-height:500px){#gameHeader{right:auto;width:52%}.drive{width:52%}.drive button{flex:1;min-width:0}}
 </style></head><body>
-<header id="gameHeader"><h1>Old Crank</h1><img id="weatherIcon" src="assets/scenery/Weather-Sunny.png" alt="Sunny" title="Sunny" width="32" height="32" style="margin-left:10px;margin-right:auto;object-fit:contain"><button id="levelsButton">Levels</button></header>
+<header id="gameHeader"><h1>Old Crank</h1><img id="weatherIcon" src="assets/scenery/Weather-Sunny.png" alt="Sunny" title="Sunny" width="32" height="32" style="margin-left:10px;margin-right:auto;object-fit:contain"></header>
 <main id="gameMain"><section class="stage" aria-label="Game"><canvas id="scene" aria-label="Old Crank pedaling a unicycle"></canvas><div id="ridePad" tabindex="0" role="group" aria-label="Ride control: drag left or right to lean, down to crouch, sweep up to hop"><span class="pad-up">Extend ↑</span><span class="pad-down">Crouch ↓</span><span class="pad-back">Back</span><span class="pad-forward">Forward</span><i id="padDot"></i></div><section id="finishCard" role="dialog" aria-modal="true" aria-labelledby="finishTitle" hidden><h2 id="finishTitle">Course clear</h2><div id="finishStars" role="img"></div><div id="finishTime"></div><button id="nextLevel" class="primary" hidden>Next level</button><button id="raceAgain">Ride again</button><button id="resultsLevels" style="margin-top:8px">Levels</button></section><div id="state" class="error" role="alert" hidden></div></section>
-<nav class="drive" aria-label="Rider controls"><div class="row"><button id="jump" title="Hold to crouch, release to hop">Hop</button><button id="pause">Pause</button><button id="reset">Restart</button></div></nav>
+<nav class="drive" aria-label="Rider controls"><div class="row"><button id="levelsButton">Levels</button><button id="pause">Pause</button><button id="reset">Restart</button></div></nav>
 </main>
 <section id="levelMenu" aria-label="Choose a level"><div class="level-menu-inner"><div class="menu-heading"><div><h2>Old Crank</h2><p>Choose your ride</p></div><span id="starTotal"></span></div><div id="levelGrid"></div></div></section>
 
@@ -64,4 +67,4 @@ body{overscroll-behavior:none}
 
 
 
-<script src="game.js"></script></body></html>
+<section id="rotatePrompt" role="dialog" aria-modal="true" aria-labelledby="rotateTitle" hidden><div class="rotate-phone" aria-hidden="true"></div><h2 id="rotateTitle">Turn your phone sideways</h2><p>Old Crank plays in landscape.</p></section><script src="game.js?v=621acd81a256"></script></body></html>
