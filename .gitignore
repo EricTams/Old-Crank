@@ -1,0 +1,8 @@
+# This repository publishes only the generated shipping game.
+# Local source, tools, tests, archives, previews and training stay on disk.
+/*
+!/.gitignore
+!/docs/
+/docs/.old-crank-build
+.DS_Store
+._*
