@@ -28,16 +28,16 @@ header{background:#f4efe2}h1{letter-spacing:-1px}.tag{font-size:10px;color:#6973
 /* Landscape phones use the full screen for the course, with controls overlaid. */
 body{overscroll-behavior:none}
 .drive button{touch-action:none;-webkit-user-select:none;user-select:none}
-@media (orientation:landscape) and (max-height:500px){
+@media (orientation:landscape) and (max-height:500px), (hover:hover) and (pointer:fine){
  header{position:absolute;inset:0 0 auto;z-index:3;background:transparent;border:0;
   padding:env(safe-area-inset-top,0px) max(10px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));pointer-events:none}
  header>*{pointer-events:auto}header h1{font-size:20px}
  #settingsToggle{min-width:44px;min-height:44px}
- main{height:100dvh;width:100%;position:relative}
+ main{height:100%;width:100%;position:relative}
  .stage{height:100%;min-height:0}
  .drive{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(8px,env(safe-area-inset-bottom));width:52%;padding:0;background:transparent;border:0;box-shadow:none;z-index:2}
  .drive .row{flex-wrap:nowrap;gap:6px}.drive button{min-height:44px;padding:8px;font-size:12px;background:#f4efe2df}
- #ridePad{right:max(12px,env(safe-area-inset-right));top:env(safe-area-inset-top,0px);bottom:env(safe-area-inset-bottom,0px);width:min(30vw,260px);height:auto;background:#f5f1e329}
+ #ridePad{right:max(12px,env(safe-area-inset-right));top:env(safe-area-inset-top,0px);bottom:env(safe-area-inset-bottom,0px);width:min(30%,260px);height:auto;background:#f5f1e329}
  #settingsPanel{position:absolute;z-index:4;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));top:48px;max-height:calc(100dvh - 110px);border:1px solid #c8c1ad;border-radius:10px}
 }
 #finishCard{position:absolute;z-index:5;left:50%;top:45%;transform:translate(-50%,-50%);width:260px;max-width:80vw;text-align:center;background:#f8f3e5f5;border:1px solid #b8af94;border-radius:16px;padding:20px;box-shadow:0 8px 30px #33351c22}
@@ -48,10 +48,17 @@ body{overscroll-behavior:none}
 .level-menu-inner{max-width:1000px;margin:auto}.menu-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.menu-heading h2{font:900 42px Georgia,serif;letter-spacing:-2px;text-transform:none;margin:0}.menu-heading p{margin:3px 0 0;font-size:13px;color:#716d61}#starTotal{color:#99701f;font-weight:700;white-space:nowrap}
 #levelGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.level-card{position:relative;min-height:148px;padding:16px 12px;text-align:left;background:#f8f3e5;border:2px solid #c4bca5;border-radius:12px;box-shadow:0 3px 0 #c4bca5;display:flex;flex-direction:column;gap:10px}.level-card:disabled{cursor:default;opacity:.55;box-shadow:none}.level-number{font:700 30px Georgia,serif;color:#78834f}.level-name{font-size:14px;flex:1}.level-stars{color:#c6bfae;font-size:24px;letter-spacing:3px;white-space:nowrap}.level-stars .earned{color:#b98724}.level-stars .half{background:linear-gradient(90deg,#b98724 50%,#c6bfae 50%);background-clip:text;-webkit-background-clip:text;color:transparent}.level-lock{position:absolute;right:12px;top:16px;font-size:16px}
 @media(max-width:650px){#levelGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.menu-heading h2{font-size:34px}}
-@media(orientation:landscape) and (max-height:500px){#levelMenu{padding-top:12px;padding-bottom:12px}.menu-heading{margin-bottom:12px}.menu-heading h2{font-size:30px}.menu-heading p{display:none}#levelGrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.level-card{min-height:119px;padding:10px;gap:4px}.level-number{font-size:24px}.level-stars{font-size:22px}.level-name{font-size:12px}}
+@media(orientation:landscape) and (max-height:500px), (hover:hover) and (pointer:fine){#levelMenu{padding-top:12px;padding-bottom:12px}.menu-heading{margin-bottom:12px}.menu-heading h2{font-size:30px}.menu-heading p{display:none}#levelGrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.level-card{min-height:119px;padding:10px;gap:4px}.level-number{font-size:24px}.level-stars{font-size:22px}.level-name{font-size:12px}}
+/* Desktop uses the same 844:390 landscape frame as the target iPhone. */
+@media (hover:hover) and (pointer:fine){
+ html{display:flex;align-items:center;justify-content:center;background:#242622}
+ body{position:relative;flex:none;width:min(100vw,calc(100dvh * 844 / 390),1280px);height:min(100dvh,calc(100vw * 390 / 844),calc(1280px * 390 / 844));overflow:hidden}
+ #levelMenu{position:absolute}
+ #settingsPanel{max-height:calc(100% - 70px)}
+}
 
 #rotatePrompt{position:fixed;inset:0;z-index:100;background:#eee9dc;display:grid;place-content:center;text-align:center;padding:30px;gap:14px}#rotatePrompt h2{font:700 28px Georgia,serif;text-transform:none;letter-spacing:0;margin:0}#rotatePrompt p{margin:0;color:#716d61}.rotate-phone{width:80px;height:44px;border:4px solid #78834f;border-radius:9px;margin:0 auto 12px;transform:rotate(-15deg)}
-@media(orientation:landscape) and (max-height:500px){#gameHeader{right:auto;width:52%}.drive{width:52%}.drive button{flex:1;min-width:0}}
+@media(orientation:landscape) and (max-height:500px), (hover:hover) and (pointer:fine){#gameHeader{right:auto;width:52%}.drive{width:52%}.drive button{flex:1;min-width:0}}
 </style></head><body>
 <header id="gameHeader"><h1>Old Crank</h1><img id="weatherIcon" src="assets/scenery/Weather-Sunny.png" alt="Sunny" title="Sunny" width="32" height="32" style="margin-left:10px;margin-right:auto;object-fit:contain"></header>
 <main id="gameMain"><section class="stage" aria-label="Game"><canvas id="scene" aria-label="Old Crank pedaling a unicycle"></canvas><div id="ridePad" tabindex="0" role="group" aria-label="Ride control: drag left or right to lean, down to crouch, sweep up to hop"><span class="pad-up">Extend ↑</span><span class="pad-down">Crouch ↓</span><span class="pad-back">Back</span><span class="pad-forward">Forward</span><i id="padDot"></i></div><section id="finishCard" role="dialog" aria-modal="true" aria-labelledby="finishTitle" hidden><h2 id="finishTitle">Course clear</h2><div id="finishStars" role="img"></div><div id="finishTime"></div><button id="nextLevel" class="primary" hidden>Next level</button><button id="raceAgain">Ride again</button><button id="resultsLevels" style="margin-top:8px">Levels</button></section><div id="state" class="error" role="alert" hidden></div></section>
@@ -67,4 +74,4 @@ body{overscroll-behavior:none}
 
 
 
-<section id="rotatePrompt" role="dialog" aria-modal="true" aria-labelledby="rotateTitle" hidden><div class="rotate-phone" aria-hidden="true"></div><h2 id="rotateTitle">Turn your phone sideways</h2><p>Old Crank plays in landscape.</p></section><script src="game.js?v=5561db017ed9"></script></body></html>
+<section id="rotatePrompt" role="dialog" aria-modal="true" aria-labelledby="rotateTitle" hidden><div class="rotate-phone" aria-hidden="true"></div><h2 id="rotateTitle">Turn your phone sideways</h2><p>Old Crank plays in landscape.</p></section><script src="game.js?v=08ba0218c81d"></script></body></html>
